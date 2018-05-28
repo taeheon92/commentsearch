@@ -1,0 +1,18 @@
+<h1>쇼</h1>
+제목 : <%= @post.title %><br>
+내용 : <%= @post.content %>
+<hr>
+<form action='/comment'>
+  댓글쓰기:<br>
+  <input type="text" name="comment_content">
+  <input type='hidden' name='post_id' value=<%= @post.id %>>
+  <input type='submit'>
+</form>
+
+<% @comment.each do |x| %>
+    <hr>
+    <%= x.content %> <a href='/comment/<%= x.id %>'>댓글 삭제</a>
+
+<% end %>
+<hr>
+<a href = '/post/index'>게시판으로</a>
